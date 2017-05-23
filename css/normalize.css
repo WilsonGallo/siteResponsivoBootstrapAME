@@ -1,0 +1,418 @@
+Sistema de grid
+
+Bootstrap includi um sistema de grid fluido responsivo, mobile first que balança apropriadamente até 12 colunas como dispositivo ou viewport de tamanho aumentado. Ele inclui classes predefinidas para opções de layout fácil, bem como mixins poderosos para geradores de layouts mais semânticos.
+
+Introdução
+Sistema de gride é usado para creação de layout de páginas através de uma série de linhas e colunas que abrigam seu conteúdo. Aqui esta como o sistema de grid do Bootstrap trabalha:
+
+Linhas (row) devem estar localizadas dentro de um .container (largura fixa) ou .container-fluid (largura cheia) para alinhamento e padding adequado.
+Use linhas para criar grupos horizontais de colunas.
+Contenteúdo deve ser localizado dentro das colunas, e apenas colunas podem ser filhas imediatas de linhas.
+Classes de grid predefinidos como .row e .col-xs-4 estão disponíveis para fazer rápidamente layouts em grid. Less mixins também podem ser usados para mais layouts semânticos.
+Crie colunas calhas (lacunas entre colunas com conteúdo) através de padding. Esse padding é deslocado em linhas para a primeira e última coluna por margem negativa nos .rows.
+A margem negativa é porque os exemplos abaixo estão sem indentação. É assim que o conteúdo dentro de colunas de grid é alinhado com conteúdo sem grid.
+Colunas de grid são criados em um número específico de 12 colunas disponíveis que você pretende o que desejar abranger. Por ecemplo, três colunas iguais faria uso de três .col-xs-4.
+Se mais que 12 colunas são colocadas dentro de uma única linha, cada grupo de colunas extras serão, como uma unidade, colocadas dentro de uma nova linha.
+Classes de grid aplicadas para dispositivos com largura de tela maiores ou iguais aos tamanhos de ponto de parada, e sobrescreve classes de grid direcionadas em dispositivos menores. Portanto, por exemplo, aplicando qualquer classe .col-md-* para um elementos não irá apenas afetar seu estilo em dispositivos médios mas também em dispositivos grandes se uma classe .col-lg-* não está presente.
+Veja os exemplos para aplicação destes princípios para seu código.
+
+Media queries
+Nós usamos as media queries seguintes em nossos arquivos Less para criar uma chave de ponto de parada em nosso sistema de grid.
+
+Copy
+/* Dispositivos extra pequenos (extra small) (celulares, menores que 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Dispositivos pequenos (tablets, 768px e superiores) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Dispositivos médios (desktops, 992px e superiores) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Dispositivos grandes (desktops grandes, 1200px e superiores) */
+@media (min-width: @screen-lg-min) { ... }
+Nós ocasionalmente aumentamos nessas media queries para incluir uma max-width para limitar o CSS para uma definição restrita de dispositivos.
+
+Copy
+@media (max-width: @screen-xs-max) { ... }
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+@media (min-width: @screen-lg-min) { ... }
+Opções de grid
+Veja como os aspectos do sistema de grid do Bootstrap trabalha através de múltiplos dispositivos com uma tabela prática.
+
+Dispositivos extra pequenos Telefones (<768px)	Dispositivos pequenos Tablets (≥768px)	Dispositivos médios Desktops (≥992px)	Dispositivos grandes Desktops (≥1200px)
+Comportamento do grid	Horizontal em todos os momentos	Colapsa ao princípio, horizontal acima de breakpoints
+Largura do container	nenhum (auto)	750px	970px	1170px
+Prefixo de classe	.col-xs-	.col-sm-	.col-md-	.col-lg-
+número de colunas	12
+Largura da coluna	Auto	~62px	~81px	~97px
+Largura da calha	30px (15px em cada lada da coluna)
+Encaixável	Sim
+Distância	Sim
+Ordenação de colunas	Sim
+Exemplo: Empilhamento horizontal
+Usando uma única definição de classe de grid .col-md-*, você pode criar um sistema de grid bádico que inicia fora da pilha nos dispositivos móveis e tablets (o extra pequeno para alcance pequeno) antes de se tornar horizontal em dispositivos desktop (médio). Coloque colunas de grid em algum .row.
+
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-1
+.col-md-8
+.col-md-4
+.col-md-4
+.col-md-4
+.col-md-4
+.col-md-6
+.col-md-6
+Copy
+<div class="row">
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+</div>
+<div class="row">
+  <div class="col-md-8">.col-md-8</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-6">.col-md-6</div>
+  <div class="col-md-6">.col-md-6</div>
+</div>
+Exemplo: Container fluido
+Torne qualquer largura fixa (fixed-width) de layout de grid dentro de um layout de largura inteira (full-width) através de mudança externa no .container para .container-fluid.
+
+Copy
+<div class="container-fluid">
+  <div class="row">
+    ...
+  </div>
+</div>
+Exemplo: Celular e desktop
+Não quer suas colunas simplesmente empilhadas em dispositivos menores? Use as classes de grid para disposivitos extra pequenos (xs) e médios (md) adicionado .col-xs-* .col-md-* em suas colunas. Veja os exemplos abaixo para uma ideia melhor de como isso tudo trabalha.
+
+.col-xs-12 .col-md-8.col-xs-6 .col-md-4
+.col-xs-6 .col-md-4.col-xs-6 .col-md-4.col-xs-6 .col-md-4
+.col-xs-6.col-xs-6
+Copy
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+  <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-6">.col-xs-6</div>
+  <div class="col-xs-6">.col-xs-6</div>
+</div>
+Exemplo: Celular, tablet, desktop
+Configure sobre o exemplo anterior criando ainda mais dinâmicos e poderosos layouts com classes de tablets .col-sm-*.
+
+.col-xs-12 .col-sm-6 .col-md-8.col-xs-6 .col-md-4
+.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4
+Copy
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+  <div class="clearfix visible-xs-block"></div>
+  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+</div>
+Exemplo: Envolvendo coluna
+Se mais que 12 colunas estão colocadas dentro de uma única linha, cada grupo de colunas extras irão, como uma unidade, envolver dentro de uma nova linha.
+
+.col-xs-9.col-xs-4
+Since 9 + 4 = 13 > 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit..col-xs-6
+Subsequent columns continue along the new line.
+Copy
+<div class="row">
+  <div class="col-xs-9">.col-xs-9</div>
+  <div class="col-xs-4">.col-xs-4<br>Umz vez que 9 + 4 = 13 &gt; 12, essa div com largura de coluna 4 será envolvida dentro de uma nova linha como uma unidade contínua.</div>
+  <div class="col-xs-6">.col-xs-6<br>Colunas subsequentes continuam ao longo da nova linha.</div>
+</div>
+Redefinições de colunas responsivas
+Com a quarta camada de grids disponível você é limitado executar dentro de questões onde, em certos breakpoints, suas colunas não limpam muito bem como um é mais alto que o outro. Para corrigir isso, use uma combinação de um .clearfix e nossas classes de utilidade responsiva.
+
+.col-xs-6 .col-sm-3 
+Redimensione sua janela de exibição ou confira em seu telefone para um exemplo. .col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3
+Copy
+<div class="row">
+  <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+  <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+  <!-- Add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-xs-block"></div>
+
+  <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+  <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+</div>
+Além disso, para compensar colunas em breakpoints responsive, você pode precisar redefinir offsets, pushes, ou pulls. Veja isso em ação no exemplo de grid.
+
+Copy
+<div class="row">
+  <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+  <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+  <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0">.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0</div>
+</div>
+Colunas Offsetting
+Mova colunas para a direita usando as classes .col-md-offset-*. Essas classes acrescentam a margem esquerda de coluna por * colunas. Por exemplo, .col-md-offset-4 movimenta .col-md-4 ao londo de quatro colunas.
+
+.col-md-4
+.col-md-4 .col-md-offset-4
+.col-md-3 .col-md-offset-3
+.col-md-3 .col-md-offset-3
+.col-md-6 .col-md-offset-3
+Copy
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+</div>
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+  <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+</div>
+You can also override offsets from lower grid tiers with .col-*-offset-0 classes.
+
+Copy
+<div class="row">
+  <div class="col-xs-6 col-sm-4">
+  </div>
+  <div class="col-xs-6 col-sm-4">
+  </div>
+  <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0">
+  </div>
+</div>
+Aninhamento de colunas
+Para aninhar seu conteúdo com o grid padrão, adicione um novo .row (linha) e defina sobre .col-sm-* colunas numa coluna existente .col-sm-*. Linhas aninhadas devem incluir uma definição de colunas que adicionam para 12 ou menos (isso não é necessário que você use todas as 12 colunas disponíveis).
+
+Nível 1: .col-sm-9
+Nível 2: .col-xs-8 .col-sm-6 Nível 2: .col-xs-4 .col-sm-6
+Copy
+<div class="row">
+  <div class="col-sm-9">
+    Level 1: .col-sm-9
+    <div class="row">
+      <div class="col-xs-8 col-sm-6">
+        Level 2: .col-xs-8 .col-sm-6
+      </div>
+      <div class="col-xs-4 col-sm-6">
+        Level 2: .col-xs-4 .col-sm-6
+      </div>
+    </div>
+  </div>
+</div>
+Ordenação de coluna
+Mude facilmente a ordem de nossas colunas de grid embutidas com as classes modificadoras .col-md-push-* e .col-md-pull-*.
+
+.col-md-9 .col-md-push-3
+.col-md-3 .col-md-pull-9
+Copy
+<div class="row">
+  <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+  <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+</div>
+Mixins less e variáveis
+Além de classes de grid pré contruídas para layouts rápidos, Bootstrap inclui variáveis Less e mixins gerar rapidamente seus próprios layouts simples e dinâmicos.
+
+Variáveis
+Variáveis determinam o número de colunas, a largura da calha, e o ponto de media query no qual começam colunas flutuantes. Nós usamos isso para gerar as classes de grid predefinidos documentada acima, bem como para os mixins personalizados listados abaixo.
+
+Copy
+@grid-columns:              12;
+@grid-gutter-width:         30px;
+@grid-float-breakpoint:     768px;
+Mixins
+Mixins são usados em conjunto com as variáveis de grid para gerar CSS semânticos para colunas de grid individual.
+
+Copy
+// Crie um envólucro para uma serie de colunas
+.make-row(@gutter: @grid-gutter-width) {
+  // Então, limpe as colunas flutuantes
+  .clearfix();
+
+  @media (min-width: @screen-sm-min) {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+
+  // Negative margin nested rows out to align the content of columns
+  .row {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+}
+
+// Gerae a coluna extra pequena
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calcula largura baseada no número de colunas disponíveis
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Gera a coluna pequena
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calcula largura baseada no número de colunas disponíveis
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Gera colunas offsets pequenas
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-sm-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Gerar a coluna média
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calcule largura baseada no número de colunas disponíveis
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the medium column offsets
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-md-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-md-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-md-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large column offsets
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-lg-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+Exemplo de uso
+Você pode modificar as variáveis para seus próprio valores personalizados, ou apenas uso os mixins com seus valores padrão. Aqui está um exemplo de uso de configuração padrão para criar um layout de duas colunas com uma lacuna entre elas.
+
+Copy
+.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-lg-column(8);
+}
+.content-secondary {
+  .make-lg-column(3);
+  .make-lg-column-offset(1);
+}
+Copy
+<div class="wrapper">
+  <div class="content-main">...</div>
+  <div class="content-secondary">...</div>
+</div>
