@@ -18,12 +18,12 @@ font-family: 'Open Sans Condensed', sans-serif;
 }
 */
 
-  .navbar-header .logotopo{
-    padding-top: 10px;
-    padding-bottom: 5px;
-  }
+.navbar-header .logotopo{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
 .carousel-inner img{
-    margin: auto;
+  margin: auto;
 }
 .navbar-ismweb{
   height: 100px;
@@ -58,7 +58,9 @@ font-family: 'Open Sans Condensed', sans-serif;
 .margin-bottom40 { margin-bottom: 40px; }
 .margin-bottom50 { margin-bottom: 50px; }
 
-
+.intro-section {
+  margin-bottom: : 20px;
+}
 .intro-section h2 {
   padding-bottom: 20px;
   margin: 0px;
@@ -103,7 +105,7 @@ font-family: 'Open Sans Condensed', sans-serif;
  }
 /* ACESSO RÃPIDO */
 .about-section { 
-  background: url('../img/acesso-rapido.jpg');
+  /*background: url('../img/acesso-rapido.jpg'); */
  }
 
 .about-section .acesso-rapido-item {   /* Transparencia */
@@ -113,45 +115,36 @@ font-family: 'Open Sans Condensed', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
- .about-section .acesso-rapido-item img {
+.about-section .acesso-rapido-item img {
   height: 130px;
   width: 130px;
   margin-bottom: 30px;
   margin-top: 30px;  
- }
-
-
-
-  .events-section h2 {    /* Linha */
-    padding-bottom: 15px;
-    margin: 0px;
-    font-size: 30px;
-  }
-
-  .events-section .evento p {
-    font-size: 25px;
-    height: 180px;
-  }
-
-  .events-section .evento {   /* Transparencia */
-  text-align: center;
-  padding: 15px;
-  font-family: 'Open Sans Condensed', sans-serif;
+}
+.events-section {
+  background: rgba(255, 255, 255, 0.50);
+}
+.events-section h2 {    /* Linha */
+  padding-bottom: 50px;
+  margin: 0px;
+  font-size: 30px;
+}
+.events-section .evento p {
+  font-size: 25px;
+  height: 180px;
 }
 
-
-  .contato-fanpage {
+  .contact-section {
     font-family: 'Open Sans Condensed', sans-serif;
   }
-
-  .contato-fanpage h2{
+  .contact-section h2{
     border-bottom: #00009C solid 3px;
     padding-bottom: 15px;
     margin: 0px;
     font-size: 23px;
   }
 
-  .contato-fanpage form{
+  .contact-section form{
     padding: 15px;
   }
 
@@ -161,14 +154,46 @@ font-family: 'Open Sans Condensed', sans-serif;
 
   }
 
+
   footer {
-    background-color: #00009C;
-    height: 250px; 
+  color: white;
+  }
+  footer h3 {
+    margin-bottom: 20px;
+  }
+  footer .footer-above {
+    padding-top: 10px;
+    background-color: #2C3E50;
+  }
+  footer .footer-col {
+    margin-bottom: 25px;
+  }
+  footer .footer-below {
+    padding: 25px 0;
+    background-color: #233140;
   }
 
-  footer .logo{
-    padding-top: 15px;
-    margin-top: 60px;
+
+  #hgg img {
+    height: 40%;
+    width: 40%;
+  }
+  #sirio img {
+    padding-top: 10px;
+    height: 60%;
+    width: 60%;
+  }
+  #menino img { 
+    padding-top: 10px;
+    position: relative;
+    height: 40%;
+    width: 40%;
+  
+  }
+
+
+  .rodape p{
+    padding-left: 375px;
   }
 
   /* Icones social */
@@ -234,3 +259,4 @@ font-family: 'Open Sans Condensed', sans-serif;
     background-color: #cd1111;
     color: #F8f8f8; 
   }
+
