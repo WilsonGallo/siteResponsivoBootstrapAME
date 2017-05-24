@@ -5,12 +5,16 @@ font-family: 'PT Sans Narrow', sans-serif;
 font-family: 'Open Sans Condensed', sans-serif; 
 
 **/
-.navbar-header .logotopo{
+.navbar-centralizado {
+  margin: 45px;
+}
+.navbar-header .logotopo {
   padding-top: 10px;
   padding-bottom: 5px;
 }
 .carousel-inner img{
   margin: auto;
+  padding-top: 127px;
 }
 .navbar-ismweb{
   height: 100px;
@@ -36,6 +40,12 @@ font-family: 'Open Sans Condensed', sans-serif;
 .margin-bottom30 { margin-bottom: 30px; }
 .margin-bottom40 { margin-bottom: 40px; }
 .margin-bottom50 { margin-bottom: 50px; }
+
+.logoirssl {
+  margin-left: 0px;
+  margin-top: 20px;
+  height: 60px;
+}
 
 .intro-section {
   margin-bottom: : 20px;
@@ -87,12 +97,21 @@ font-family: 'Open Sans Condensed', sans-serif;
 .about-section { 
   background: url('../img/acesso-rapido.jpg');
  }
-
+.about-section .acesso-rapido-item h2{
+    border-bottom: #FFF solid 3px;
+    padding-bottom: 15px;
+    margin: 0px;
+    font-size: 30px;
+  }
+.about-section .acesso-rapido-item p {
+    font-size: 25px;
+  }
 .about-section .acesso-rapido-item {   /* Transparencia */
   text-align: center;
   background: rgba(255, 255, 255, 0.50);
-  padding: 25px;
-  margin-bottom: 50px;
+  height:480px;
+  padding: 15px;
+  margin-bottom: 20px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
 }
